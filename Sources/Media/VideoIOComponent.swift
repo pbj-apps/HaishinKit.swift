@@ -8,6 +8,12 @@ final class VideoIOComponent: IOComponent {
         kCVPixelBufferMetalCompatibilityKey: kCFBooleanTrue,
         kCVPixelBufferOpenGLCompatibilityKey: kCFBooleanTrue
     ]
+		#elseif targetEnvironment(macCatalyst)
+		static let defaultAttributes: [NSString: NSObject] = [
+				kCVPixelBufferPixelFormatTypeKey: NSNumber(value: kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange),
+				kCVPixelBufferMetalCompatibilityKey: kCFBooleanTrue,
+				kCVPixelBufferOpenGLCompatibilityKey: kCFBooleanTrue
+		]
     #else
     static let defaultAttributes: [NSString: NSObject] = [
         kCVPixelBufferPixelFormatTypeKey: NSNumber(value: kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange),

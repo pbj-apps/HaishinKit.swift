@@ -1,4 +1,5 @@
 import AVFoundation
+import CoreAudio
 
 public protocol AudioConverterDelegate: class {
     func didSetFormatDescription(audio formatDescription: CMFormatDescription?)

@@ -19,18 +19,24 @@ final class H264Decoder {
     ]
     static let defaultMinimumGroupOfPictures: Int = 12
 
-    #if os(iOS)
-    static let defaultAttributes: [NSString: AnyObject] = [
-        kCVPixelBufferPixelFormatTypeKey: NSNumber(value: kCVPixelFormatType_32BGRA),
-        kCVPixelBufferIOSurfacePropertiesKey: [:] as AnyObject,
-        kCVPixelBufferOpenGLESCompatibilityKey: NSNumber(booleanLiteral: true)
-    ]
-    #else
-    static let defaultAttributes: [NSString: AnyObject] = [
+    #if os(macOS)
+		static let defaultAttributes: [NSString: AnyObject] = [
         kCVPixelBufferPixelFormatTypeKey: NSNumber(value: kCVPixelFormatType_32BGRA),
         kCVPixelBufferIOSurfacePropertiesKey: [:] as AnyObject,
         kCVPixelBufferOpenGLCompatibilityKey: NSNumber(booleanLiteral: true)
     ]
+		#elseif targetEnvironment(macCatalyst)
+	  static let defaultAttributes: [NSString: AnyObject] = [
+				kCVPixelBufferPixelFormatTypeKey: NSNumber(value: kCVPixelFormatType_32BGRA),
+				kCVPixelBufferIOSurfacePropertiesKey: [:] as AnyObject,
+				kCVPixelBufferOpenGLCompatibilityKey: NSNumber(booleanLiteral: true)
+		]
+		#else
+		static let defaultAttributes: [NSString: AnyObject] = [
+				kCVPixelBufferPixelFormatTypeKey: NSNumber(value: kCVPixelFormatType_32BGRA),
+				kCVPixelBufferIOSurfacePropertiesKey: [:] as AnyObject,
+				kCVPixelBufferOpenGLESCompatibilityKey: NSNumber(booleanLiteral: true)
+		]
     #endif
 
     var formatDescription: CMFormatDescription? {
