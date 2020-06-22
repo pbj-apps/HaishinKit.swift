@@ -1,6 +1,7 @@
 import AVFoundation
 import CoreFoundation
 import VideoToolbox
+import CoreAudio
 
 #if os(iOS)
 import UIKit
@@ -54,16 +55,21 @@ public final class H264Encoder {
     public static let defaultBitrate: UInt32 = 160 * 1000
     public static let defaultScalingMode: ScalingMode = .trim
 
-    #if os(iOS)
-    static let defaultAttributes: [NSString: AnyObject] = [
-        kCVPixelBufferIOSurfacePropertiesKey: [:] as AnyObject,
-        kCVPixelBufferOpenGLESCompatibilityKey: kCFBooleanTrue
-    ]
+    #if os(macOS)
+		static let defaultAttributes: [NSString: AnyObject] = [
+				 kCVPixelBufferIOSurfacePropertiesKey: [:] as AnyObject,
+				 kCVPixelBufferOpenGLCompatibilityKey: kCFBooleanTrue
+		 ]
+		#elseif targetEnvironment(macCatalyst)
+		static let defaultAttributes: [NSString: AnyObject] = [
+				 kCVPixelBufferIOSurfacePropertiesKey: [:] as AnyObject,
+				 kCVPixelBufferOpenGLCompatibilityKey: kCFBooleanTrue
+		 ]
     #else
-    static let defaultAttributes: [NSString: AnyObject] = [
-        kCVPixelBufferIOSurfacePropertiesKey: [:] as AnyObject,
-        kCVPixelBufferOpenGLCompatibilityKey: kCFBooleanTrue
-    ]
+		static let defaultAttributes: [NSString: AnyObject] = [
+				kCVPixelBufferIOSurfacePropertiesKey: [:] as AnyObject,
+				kCVPixelBufferOpenGLESCompatibilityKey: kCFBooleanTrue
+		]
     #endif
 
     public var settings: Setting<H264Encoder, Option> = [:] {

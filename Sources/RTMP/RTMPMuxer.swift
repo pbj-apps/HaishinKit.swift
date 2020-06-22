@@ -1,4 +1,5 @@
 import AVFoundation
+import CoreAudio
 
 protocol RTMPMuxerDelegate: class {
     func metadata(_ metadata: ASObject)

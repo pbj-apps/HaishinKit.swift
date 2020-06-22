@@ -1,5 +1,6 @@
 import AVFoundation
 import Foundation
+import CoreAudio
 
 extension AudioConverter {
     final class AudioBuffer {

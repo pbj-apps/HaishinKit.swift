@@ -1,6 +1,7 @@
 import AVFoundation
 import CoreMedia
 import Foundation
+import CoreAudio
 
 #if canImport(SwiftPMSupport)
 import SwiftPMSupport
