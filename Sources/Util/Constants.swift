@@ -1,5 +1,3 @@
-import Logboard
-
 #if canImport(SwiftPMSupport)
 import SwiftPMSupport
 #endif

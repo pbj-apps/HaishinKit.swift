@@ -1,6 +1,5 @@
 import AVFoundation
 import HaishinKit
-import Logboard
 import UIKit
 
 let logger = Logboard.with("com.haishinkit.Exsample.iOS")
