@@ -232,6 +232,7 @@ view.addSubview(hkView)
 ```
 
 ## FAQ
+
 ### Do you support me via Email?
 Yes. Consulting fee is [$50](https://www.paypal.me/shogo4405/50USD)/1 incident. I don't recommend. 
 Please consider to use Issues.

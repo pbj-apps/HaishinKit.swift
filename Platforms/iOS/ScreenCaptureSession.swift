@@ -160,7 +160,7 @@ extension ScreenCaptureSession: Running {
             self.pixelBufferPool = nil
             self.colorSpace = CGColorSpaceCreateDeviceRGB()
             self.displayLink = CADisplayLink(target: self, selector: #selector(onScreen))
-            self.displayLink.frameInterval = self.frameInterval
+            self.displayLink.preferredFramesPerSecond = self.frameInterval
             self.displayLink.add(to: .main, forMode: RunLoop.Mode.common)
         }
     }
