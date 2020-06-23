@@ -16,10 +16,10 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/shogo4405/HaishinKit.swift.git", :tag => "#{s.version}" }
   s.social_media_url = "http://twitter.com/shogo4405"
 
-  s.ios.deployment_target = "8.0"
+  s.ios.deployment_target = "13.0"
   s.ios.source_files = "Platforms/iOS/*.{h,swift}"
 
-  s.osx.deployment_target = "10.11"
+  s.osx.deployment_target = "10.15"
   s.osx.source_files = "Platforms/macOS/*.{h,swift}"
 
   s.tvos.deployment_target = "10.2"

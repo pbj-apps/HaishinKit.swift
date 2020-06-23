@@ -26,7 +26,7 @@ final class ExampleRecorderDelegate: DefaultAVRecorderDelegate {
 final class LiveViewController: UIViewController {
     private static let maxRetryCount: Int = 5
 
-    @IBOutlet private weak var lfView: GLHKView?
+    //@IBOutlet private weak var lfView: GLHKView?
     @IBOutlet private weak var currentFPSLabel: UILabel?
     @IBOutlet private weak var publishButton: UIButton?
     @IBOutlet private weak var pauseButton: UIButton?
@@ -82,7 +82,7 @@ final class LiveViewController: UIViewController {
             logger.warn(error.description)
         }
         rtmpStream.addObserver(self, forKeyPath: "currentFPS", options: .new, context: nil)
-        lfView?.attachStream(rtmpStream)
+     //   lfView?.attachStream(rtmpStream)
     }
 
     override func viewWillDisappear(_ animated: Bool) {

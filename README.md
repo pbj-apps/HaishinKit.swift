@@ -78,7 +78,7 @@ def import_pods
 end
 
 target 'Your Target'  do
-    platform :ios, '8.0'
+    platform :ios, '13.0'
     import_pods
 end
 ```
